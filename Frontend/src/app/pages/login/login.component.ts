@@ -28,7 +28,9 @@ export class LoginComponent implements OnInit {
       username: this.form.getRawValue().username,
       password: this.form.getRawValue().password
     }
-    let  status;
+    let status;
+    let roles;
+    let roleName;
     localStorage.setItem("username", data.username);
     localStorage.setItem("password", data.password);
     this.authService.getAccountStatus(data).subscribe((response:any)=>{ 
@@ -37,14 +39,20 @@ export class LoginComponent implements OnInit {
       console.log("this is your account Status : " + status);
       if (status == true) {
         this.authService.login(data).subscribe(res => {
-          console.log(res);
-          console.log(res.headers.get('Authorization'))
+
+          roles = res.body["roles"][0];
+          roleName = roles["roleName"];
+
+        
+          // console.log(res.headers.get('Authorization'))
           let jwt = res.headers.get('Authorization');
-          this.authService.saveToken(jwt);
-          if (localStorage.getItem("roleName") == "1") { 
-            
+          // this.authService.saveToken(jwt);
+          console.log(roleName)
+          if (roleName == "USER") { 
+            console.log("A USER has logged in called "+res.body["username"])
             this.router.navigateByUrl("/User/ImmobiliersForSale");
           } else {
+            console.log("A ADMIN has logged in called "+res.body["username"])
             this.router.navigateByUrl("/Admin/dashboard");
           }
         });

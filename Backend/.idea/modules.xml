@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Backend.iml" filepath="$PROJECT_DIR$/.idea/Backend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ContractServiceEntil/ContractService.iml" filepath="$PROJECT_DIR$/ContractServiceEntil/ContractService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Registry/Registry.iml" filepath="$PROJECT_DIR$/Registry/Registry.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cloud-getway/cloud-getway.iml" filepath="$PROJECT_DIR$/cloud-getway/cloud-getway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gestionService/gestionService.iml" filepath="$PROJECT_DIR$/gestionService/gestionService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sec-service/sec-service.iml" filepath="$PROJECT_DIR$/sec-service/sec-service.iml" />
+    </modules>
+  </component>
+</project>

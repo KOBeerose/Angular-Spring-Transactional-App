@@ -16,7 +16,7 @@ export class AuthServiceService {
   constructor(private http: HttpClient) { }
   login(data) {
 
-    return this.http.post(this.host2 + "/login", data, { observe: 'response' });
+    return this.http.post(this.host2 + "/loggin", data, { observe: 'response' });
   }
 
   register(data) {

@@ -1,0 +1,36 @@
+server:
+  port: 9191
+
+spring:
+  application:
+    name: API-GATWAY
+  cloud:
+    gateway:
+      routes:
+        - id: GESTION-SERVICE
+          uri: lb://GESTION-SERVICE
+          predicates:
+            - Path=/immobilier/**
+        - id: GESTION-SERVICE
+          uri: lb://GESTION-SERVICE
+          predicates:
+            - Path=/transaction/**
+        - id: CONTRACT-SERVICE
+          uri: lb://CONTRACT-SERVICE
+          predicates:
+            - Path=/api/**
+        - id: Auth-SERVICE
+          uri: lb://Auth-SERVICE
+          predicates:
+            - Path=/**
+
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    hostname: localhost
+   
