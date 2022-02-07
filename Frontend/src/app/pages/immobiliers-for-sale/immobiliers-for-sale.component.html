@@ -1,4 +1,4 @@
-<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+<div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
   <div class="container-fluid">
     <div class="header-body">
       <!-- Card stats -->
@@ -119,17 +119,17 @@
 <div class="container-fluid mt--7">
   <!-- Table -->
   <div class="row">
-    <div *ngFor="let Immobilier of Immobiliers" class="col-3">
+    <div *ngFor="let Immobilier of Immobiliers" class="col-xl-3 col-lg-6">
       <div class="card shadow">
         <div class="card-header border-0">
-          <h3 class="mb-0">House in {{Immobilier.ville}} &nbsp;&nbsp; ID: {{Immobilier.id}}</h3>
+          <h3 class="mb-0">House in {{Immobilier.ville}} ---- ID: {{Immobilier.id}}</h3>
         </div>
         <div class="card-body">
-          <img width= "320" height="200" src="{{Immobilier.image}}" alt="image of the real estate">
-        </div>  
+          <img width="320" height="200" src="{{Immobilier.image}}" alt="image of the real estate">
+        </div>
         <div class="card-footer py-4">
-            <span>Price: {{Immobilier.price}}.000 $</span><br>
-            <span>Surface: {{Immobilier.surface}}</span>
+          <span>Price: {{Immobilier.price}}.000 $</span><br>
+          <span>Surface: {{Immobilier.surface}}</span>
         </div>
       </div>
     </div>

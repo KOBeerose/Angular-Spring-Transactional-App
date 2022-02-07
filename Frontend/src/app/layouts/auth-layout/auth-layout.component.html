@@ -1,12 +1,10 @@
 <div class="main-content">
-  <nav class="navbar navbar-top navbar-horizontal navbar-expand-md navbar-dark">
-    <div class="container px-4">
-      <a
-        class="navbar-brand"
-        routerLinkActive="active"
-        [routerLink]="['/User/dashboard']"
-      >
-       Estate Chain
+  <nav class="navbar navbar-top navbar-horizontal navbar-expand-md navbar-light">
+    <div class="container">
+      <a class="navbar-brand"
+         routerLinkActive="active"
+         [routerLink]="['/User/ImmobiliersForSale']">
+        <img src="./assets/img/brand/red.png"  width="100%" class="navbar-brand-img" alt="...">
       </a>
       <button
         class="navbar-toggler"
@@ -60,7 +58,7 @@
               [routerLink]="['/Auth/register']"
             >
               <i class="ni ni-circle-08"></i>
-              <span class="nav-link-inner--text">Register</span>
+              <span class="nav-link-inner--text text-black">Register</span>
             </a>
           </li>
           <li class="nav-item">
@@ -70,7 +68,7 @@
               [routerLink]="['/Auth/login']"
             >
               <i class="ni ni-key-25"></i>
-              <span class="nav-link-inner--text">Login</span>
+              <span class="nav-link-inner--text text-black">Login</span>
             </a>
           </li>
           <!-- <li class="nav-item">

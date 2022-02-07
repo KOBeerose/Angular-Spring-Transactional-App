@@ -11,31 +11,35 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-   focus: any;
+  focus: any;
   focus1;
   form: FormGroup;
-  constructor(private authService: AuthServiceService ,private Formbuilder:FormBuilder ,private router :Router) { }
-  
+  constructor(private authService: AuthServiceService, private Formbuilder: FormBuilder, private router: Router) { }
+
 
   ngOnInit() {
     this.form = this.Formbuilder.group({
-        username: '',
-        password: ''
-      });
+      username: '',
+      password: ''
+    });
   }
   onLogin() {
     const data = {
       username: this.form.getRawValue().username,
-      password: this.form.getRawValue().password
+      password: this.form.getRawValue().password,
+      useraddress: "adresse"
     }
     let status;
     let roles;
     let roleName;
     localStorage.setItem("username", data.username);
     localStorage.setItem("password", data.password);
-    this.authService.getAccountStatus(data).subscribe((response:any)=>{ 
-      console.log(response);
+
+    this.authService.getAccountStatus(data).subscribe((response: any) => {
+
       status = response.actived;
+
+      localStorage.setItem("useraddress", response.address);
       console.log("this is your account Status : " + status);
       if (status == true) {
         this.authService.login(data).subscribe(res => {
@@ -43,27 +47,27 @@ export class LoginComponent implements OnInit {
           roles = res.body["roles"][0];
           roleName = roles["roleName"];
 
-        
+
           // console.log(res.headers.get('Authorization'))
           let jwt = res.headers.get('Authorization');
           // this.authService.saveToken(jwt);
-          console.log(roleName)
-          if (roleName == "USER") { 
-            console.log("A USER has logged in called "+res.body["username"])
+
+          if (roleName == "USER") {
+            console.log("A USER has logged in called " + res.body["username"])
             this.router.navigateByUrl("/User/ImmobiliersForSale");
           } else {
-            console.log("A ADMIN has logged in called "+res.body["username"])
+            console.log("A ADMIN has logged in called " + res.body["username"])
             this.router.navigateByUrl("/Admin/dashboard");
           }
         });
       } else {
         this.router.navigateByUrl("/Auth/approuveAccount");
-     }
+      }
     });
-    
 
-   
+
+
   }
 
-  
+
 }

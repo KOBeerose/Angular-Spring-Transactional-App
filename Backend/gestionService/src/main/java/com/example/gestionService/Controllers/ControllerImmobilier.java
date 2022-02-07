@@ -74,7 +74,7 @@ public class ControllerImmobilier {
             }
         }
     }
-    @GetMapping("/changeOwner/{id}")
+    @PutMapping("/changeOwner/{id}")
     public void changeOwner(@PathVariable("id") Long id,@RequestBody String newOwner){
         List<Immobilier> immobilierList=immobilierRepository.findAll();
         for(int i=0;i<immobilierList.size();i++){
