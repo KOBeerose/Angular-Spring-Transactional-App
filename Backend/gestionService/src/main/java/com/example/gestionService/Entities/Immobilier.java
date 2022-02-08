@@ -17,6 +17,7 @@ public class Immobilier {
     @javax.persistence.Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
+    private String titre;
     private String addressOwner;
     private double price;
     private double surface;

@@ -17,27 +17,32 @@ public class ControllerImmobilier {
     @Autowired
     ImmobilierRepository immobilierRepository;
 
-    @GetMapping("/listImmobilier/{address}")
-    public List<Immobilier> listImmobilier(@PathVariable("address") String address){
-        List<Immobilier> listImm=new ArrayList<Immobilier>();
-        List<Immobilier> listImmobilier=immobilierRepository.findAll();
-        for(int i=0;i<listImmobilier.size();i++){
-            if(listImmobilier.get(i).getAddressOwner().equals(address)){
-                listImm.add(listImmobilier.get(i));
+        @GetMapping("/listImmobilier/{address}")
+        public List<Immobilier> listImmobilier(@PathVariable("address") String address){
+            List<Immobilier> listImm=new ArrayList<Immobilier>();
+            List<Immobilier> listImmobilier=immobilierRepository.findAll();
+            for(int i=0;i<listImmobilier.size();i++){
+                if(listImmobilier.get(i).getAddressOwner().equals(address)){
+                    listImm.add(listImmobilier.get(i));
+                }
             }
+            return listImm;
         }
-        return listImm;
-    }
-    @GetMapping("/listVisibleImmobilier")
-    public List<Immobilier> listVisibleImmobilier(){
-        List<Immobilier> listImm=new ArrayList<Immobilier>();
-        List<Immobilier> listImmobilier=immobilierRepository.findAll();
-        for(int i=0;i<listImmobilier.size();i++){
-            if(listImmobilier.get(i).isAnnounced()==true){
-                listImm.add(listImmobilier.get(i));
+        @GetMapping("/listVisibleImmobilier")
+        public List<Immobilier> listVisibleImmobilier(){
+            List<Immobilier> listImm=new ArrayList<Immobilier>();
+            List<Immobilier> listImmobilier=immobilierRepository.findAll();
+            for(int i=0;i<listImmobilier.size();i++){
+                if(listImmobilier.get(i).isAnnounced()==true){
+                    listImm.add(listImmobilier.get(i));
+                }
             }
+            return listImm;
         }
-        return listImm;
+
+    @GetMapping("/immobilierDetails/{id}")
+    public Immobilier ImmobilierDetails(@PathVariable("id") Long id){
+        return this.immobilierRepository.findById(id).get();
     }
 
 
@@ -60,7 +65,7 @@ public class ControllerImmobilier {
     }
     @PostMapping("/saveImmobilier")
     public Immobilier saveImmobilier(@RequestBody Immobilier immobilier){
-        immobilier.setAnnounced(true);
+        // immobilier.setAnnounced(true);
         return immobilierRepository.save(immobilier);
     }
     @GetMapping("/changeAnnouncement/{id}")

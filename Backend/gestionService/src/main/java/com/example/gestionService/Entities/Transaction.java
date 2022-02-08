@@ -17,7 +17,7 @@ public class Transaction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
     private String addressrecipent;
-    private String addressBuyer;
+    private String addressOwner;
     private double priceTran;
     @ManyToOne
     @JoinColumn(name = "immobilier_id")

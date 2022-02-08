@@ -25,6 +25,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers(HttpMethod.GET,"/immobilier/getImmobilier/**").permitAll();
         http.authorizeRequests().antMatchers(HttpMethod.GET,"/immobilier/listVisibleImmobilier/**").permitAll();
         http.authorizeRequests().antMatchers(HttpMethod.GET,"/immobilier/transactions/**").permitAll();
+        http.authorizeRequests().antMatchers(HttpMethod.GET,"/immobilier/immobilierDetails/**").permitAll();
         http.authorizeRequests().antMatchers(HttpMethod.GET,"/transaction/allTransactions/**").permitAll();
         http.authorizeRequests().antMatchers("/immobilier/changeAnnouncement/**").hasAuthority("ADMIN");
         http.authorizeRequests().antMatchers("/immobilier/changeAnnouncement/**").hasAuthority("USER");
