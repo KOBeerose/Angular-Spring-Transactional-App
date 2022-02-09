@@ -30,7 +30,7 @@ public class CorsConfiguration {
   public WebFilter corsFilter() {
     return (ServerWebExchange ctx, WebFilterChain chain) -> {
       ServerHttpRequest request = ctx.getRequest();
-      if (CorsUtils.isCorsRequest(request)) {
+      // if (CorsUtils.isCorsRequest(request)) {
         ServerHttpResponse response = ctx.getResponse();
         HttpHeaders headers = response.getHeaders();
         headers.add("Access-Control-Allow-Origin", ALLOWED_ORIGIN);
@@ -41,7 +41,7 @@ public class CorsConfiguration {
           response.setStatusCode(HttpStatus.OK);
           return Mono.empty();
         }
-      }
+      //}
       return chain.filter(ctx);
     };
   }

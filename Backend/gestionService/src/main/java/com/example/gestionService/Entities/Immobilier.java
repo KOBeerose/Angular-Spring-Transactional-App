@@ -9,12 +9,12 @@ import javax.persistence.*;
 import java.util.Collection;
 
 @Entity
-@Table(schema = "immobilier")
+@Table(schema = "Immobilier")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Immobilier {
-    @javax.persistence.Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
     private String titre;

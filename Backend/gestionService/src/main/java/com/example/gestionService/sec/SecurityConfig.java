@@ -7,6 +7,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 @EnableWebSecurity
@@ -24,19 +26,32 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.authorizeRequests().antMatchers(HttpMethod.GET,"/immobilier/getImmobilier/**").permitAll();
         http.authorizeRequests().antMatchers(HttpMethod.GET,"/immobilier/listVisibleImmobilier/**").permitAll();
-        http.authorizeRequests().antMatchers(HttpMethod.GET,"/immobilier/transactions/**").permitAll();
+        http.authorizeRequests().antMatchers(HttpMethod.GET,"/immobilier/trans/actions/**").permitAll();
         http.authorizeRequests().antMatchers(HttpMethod.GET,"/immobilier/immobilierDetails/**").permitAll();
+        http.authorizeRequests().antMatchers(HttpMethod.POST,"/immobilier/saveImmobilier/**").permitAll();
+        http.authorizeRequests().antMatchers(HttpMethod.PUT,"/immobilier/modifyImombilier/**").permitAll();
+
         http.authorizeRequests().antMatchers(HttpMethod.GET,"/transaction/allTransactions/**").permitAll();
+
         http.authorizeRequests().antMatchers("/immobilier/changeAnnouncement/**").hasAuthority("ADMIN");
         http.authorizeRequests().antMatchers("/immobilier/changeAnnouncement/**").hasAuthority("USER");
 
-     //   http.authorizeRequests().antMatchers("/transactions/**").hasAuthority("ADMIN");
-      //  http.authorizeRequests().antMatchers("/transactions/**").hasAuthority("USER");
-       /* http.authorizeRequests().antMatchers("/categories/**").hasAuthority("ADMIN");
-        http.authorizeRequests().antMatchers("/categories/**").hasAuthority("ADMIN");
-        http.authorizeRequests().antMatchers("/products/**").hasAuthority("USER"); */
-        http.authorizeRequests().anyRequest().authenticated();
-        http.addFilterBefore(new JWTAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);
+//     //   http.authorizeRequests().antMatchers("/transactions/**").hasAuthority("ADMIN");
+//      //  http.authorizeRequests().antMatchers("/transactions/**").hasAuthority("USER");
+//       /* http.authorizeRequests().antMatchers("/categories/**").hasAuthority("ADMIN");
+//        http.authorizeRequests().antMatchers("/categories/**").hasAuthority("ADMIN");
+//        http.authorizeRequests().antMatchers("/products/**").hasAuthority("USER"); */
+//        http.authorizeRequests().anyRequest().authenticated();
+//        http.addFilterBefore(new JWTAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);
     }
 
+}
+
+@Configuration
+class DevCorsConfiguration implements WebMvcConfigurer {
+
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**").allowedMethods("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS");
+    }
 }

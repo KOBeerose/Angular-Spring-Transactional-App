@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 07, 2022 at 04:54 AM
+-- Generation Time: Feb 08, 2022 at 06:15 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.9
 
@@ -65,7 +65,12 @@ INSERT INTO `app_user` (`id`, `actived`, `adress`, `password`, `username`, `addr
 (42, b'1', NULL, '$2a$10$k1aiPC44AqjyWbVIP/MrleBOYLV3FWphuwmRo0pPfJSFeeLxh6zwO', 'new_test', 'test'),
 (49, b'1', NULL, '$2a$10$UGdPWBDLufB9iSZbB6ugA.Hd.KzMVs39RryFhS2jdA3fyeHjl9oRm', 'sdfadsffsa', '0xdesdaffdsafsd3897dFdbd4Fa1032F92CFEf86a9215108FEc6e'),
 (50, b'1', NULL, '$2a$10$oa5zOOa/1nCMfySGjZ/19OAdCyaLWgy5JLWGouy65clhENg6KARgO', 'user2', 'sdafdsafdsafasdf'),
-(51, b'1', NULL, '$2a$10$XqeFgDzzHhbUMD3o13smb.TGbQ3rJsZBz8KW4a/oyue7zwQ6PETmu', 'test', 'teasdfasdf');
+(51, b'1', NULL, '$2a$10$XqeFgDzzHhbUMD3o13smb.TGbQ3rJsZBz8KW4a/oyue7zwQ6PETmu', 'test', 'teasdfasdf'),
+(55, b'1', NULL, '$2a$10$WatnS9UAyZ2bnzodFy27w./9zNsXdDCm2kBVDx6AeGij4nSu92ohm', 'batori', 'sdfadsafdsafdsaf'),
+(56, b'1', NULL, '$2a$10$FtoopWGqG6.34WXd9HBJ1u/t3JTs81X41k6sufJuRR5OujL..lAp6', 'Taha ELGHABI', '0x7072f99a1d29C85671193Dd7352146A6B8853CcD'),
+(57, b'1', NULL, '$2a$10$L8UOxIClIyDFS/3rBjuaQerBu1RiXo0tknso2jZqrUvW9uyVcqpRy', 'test1', ''),
+(58, b'1', NULL, '$2a$10$Srr8GhCVhd1JhLaKvtwvSuDE17u0WkJsdkIh3s1hmjAvjjGlTqBdS', 'imane', '0xCbD39678ebA8ebD0B2FC99a578B77e5Cceb0AaE6'),
+(59, b'0', NULL, '$2a$10$HzRBLtyvkgVFJITTjKFHfOKAuPaHZxDPo.v2roSxcvr7ErzloMpbC', '', '');
 
 -- --------------------------------------------------------
 
@@ -95,7 +100,12 @@ INSERT INTO `app_user_roles` (`app_user_id`, `roles_id`) VALUES
 (51, 1),
 (52, 1),
 (53, 1),
-(54, 1);
+(54, 1),
+(55, 1),
+(56, 1),
+(57, 1),
+(58, 1),
+(59, 1);
 
 --
 -- Indexes for dumped tables
@@ -135,7 +145,7 @@ ALTER TABLE `app_role`
 -- AUTO_INCREMENT for table `app_user`
 --
 ALTER TABLE `app_user`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- Constraints for dumped tables
