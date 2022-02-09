@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
@@ -7,11 +7,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserProfileComponent implements OnInit {
 
-  name;
-  constructor() { }
+  username; firstname; lastname; email;
+  
+  constructor(private router:Router) { }
+  isReadMore = true
+
+  showText() {
+     this.isReadMore = !this.isReadMore
+  }
 
   ngOnInit() {
-    this.name = localStorage.getItem('username');
+    if (localStorage.getItem("username") == null) {
+      this.router.navigateByUrl("/User/forbidden");
+    }
+    this.username = localStorage.getItem('username');
+    this.email = this.username+"@gmail.com";
+    
   }
 
 }

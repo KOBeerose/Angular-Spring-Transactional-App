@@ -1,0 +1,97 @@
+<div class="header bg-gradient-default py-7 py-lg-8">
+  <div class="container">
+    <div class="header-body text-center mb-5">
+      <div class="row justify-content-center">
+        <div class="col-lg-5 col-md-2">
+          <h1 class="text-white">Edit Your Immobilier</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="separator separator-bottom separator-skew zindex-100">
+    <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <polygon class="fill-secondary" points="2560 0 2760 200 0 100"></polygon>
+    </svg>
+  </div>
+</div>
+<!-- Page content -->
+<div class="container mt--10 pb-3">
+  <!-- Table -->
+  <div class="row justify-content-center">
+    <div class="col-lg-10 col-md-8">
+      <div class="card bg-secondary shadow border-0">
+        <div class="card-header bg-transparent text-center">
+          <b>Enter the new information of your immobilier</b>
+        </div>
+        <div class="card-body px-lg-5 py-lg-5">
+          <div class="text-center text-muted mb-4"></div>
+          <form role="form" [formGroup]="form" (submit)="register()">
+            <div class="form-group">
+              <div class="input-group input-group-alternative">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="ni ni-square-pin"></i></span>
+                </div>
+                <input class="form-control" placeholder="Id" type="id" formControlName="id" />
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group input-group-alternative mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="ni ni-shop"></i></span>
+                </div>
+                <input class="form-control" placeholder="Titre" type="titre" formControlName="titre" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="input-group input-group-alternative">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="ni ni-square-pin"></i></span>
+                </div>
+                <input class="form-control" placeholder="Ville" type="ville" formControlName="ville" />
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group input-group-alternative mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="ni ni-money-coins"></i></span>
+                </div>
+                <input class="form-control" placeholder="Price" type="price" formControlName="price" />
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group input-group-alternative mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="ni ni-ruler-pencil"></i></span>
+                </div>
+                <input class="form-control" placeholder="Surface" type="surface" formControlName="surface" />
+              </div>
+            </div>
+
+            <div class="form-group mx-auto">
+              <label for="file-upload" class="btn btn-secondary">
+                Upload a Picture
+              </label>
+              <input id="file-upload" class="form-control" type="file" formControlName="picture"
+                accept="image/x-png,image/gif,image/jpeg" />
+            </div>
+
+            <div class="row">
+              <div class="col-12">
+                <div class="custom-control custom-control-alternative custom-checkbox">
+                  <input class="custom-control-input" id="customCheckAnnounce" type="checkbox" />
+                  <label class="custom-control-label" for="customCheckAnnounce">
+                    <span class="text-muted">Announce this Immobilier</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="text-center">
+              <input type="submit" value="Edit it" class="btn btn-default my-4" />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

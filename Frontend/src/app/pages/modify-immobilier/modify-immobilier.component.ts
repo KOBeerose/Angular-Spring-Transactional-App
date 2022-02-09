@@ -1,26 +1,29 @@
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { Component, OnInit } from '@angular/core';
-import { ContractServiceService } from './../../services/contract-service.service';
+import { ContractServiceService } from '../../services/contract-service.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'app-add-immobilier',
-  templateUrl: './add-immobilier.component.html',
-  styleUrls: ['./add-immobilier.component.scss']
+  selector: 'app-modify-immobilier',
+  templateUrl: './modify-immobilier.component.html',
+  styleUrls: ['./modify-immobilier.component.scss']
 })
-export class AddImmobilierComponent implements OnInit {
+export class ModifyImmobilierComponent implements OnInit {
   form: FormGroup
-  constructor(private Formbuilder: FormBuilder, private contractService: ContractServiceService, private router: Router) { }
-
+  constructor(private Formbuilder: FormBuilder, private contractService: ContractServiceService,private route: ActivatedRoute, private router: Router) { }
+  
   ngOnInit() {
+    this.route.params.subscribe( params =>  {
     this.form = this.Formbuilder.group({
+      id: params['id'],
       titre: "",
       ville: "",
       price: "",
       surface: "",
       picture: "",
     });
+  })
   }
   register() {
     const data = {
@@ -32,11 +35,12 @@ export class AddImmobilierComponent implements OnInit {
       image: "./assets/img/immobilier/image17.jfif",
       isAnnounced: 1,
     }
-    
-    this.contractService.SaveImmobilier(data).subscribe(res => {
+    ;
+    this.contractService.ModifyImm(this.form.getRawValue().id, data).subscribe(res => {
       console.log(res);
       this.router.navigateByUrl("/User/MyImmobiliers");
-    })
+      });
+
   }
 
 

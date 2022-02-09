@@ -10,6 +10,7 @@ export class ForbiddenComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
 }

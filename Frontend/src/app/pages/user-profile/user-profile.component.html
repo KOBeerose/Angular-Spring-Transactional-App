@@ -2,23 +2,23 @@
   class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center"
   style="
     min-height: 600px;
-    background-image: url(assets/img/theme/profile-cover.jpg);
+    background-image: url(assets/img/theme/team-4-800x800.jpg);
     background-size: cover;
     background-position: center top;
   "
 >
   <!-- Mask -->
-  <span class="mask bg-gradient-danger opacity-8"></span>
+  <span class="mask bg-gradient-warning opacity-8"></span>
   <!-- Header container -->
   <div class="container-fluid d-flex align-items-center">
     <div class="row">
       <div class="col-lg-7 col-md-10">
-        <h1 class="display-2 text-white">Hello Jesse</h1>
+        <h1 class="display-2 text-white">Hello {{ username }}</h1>
         <p class="text-white mt-0 mb-5">
           This is your profile page. You can see the progress you've made with
           your work and manage your projects or assigned tasks
         </p>
-        <a href="#!" class="btn btn-info">Edit profile</a>
+        <a href="User/profile#settings" class="btn btn-info">Edit profile</a>
       </div>
     </div>
   </div>
@@ -42,13 +42,13 @@
         </div>
         <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
           <div class="d-flex justify-content-between">
-            <a href="javascript:void(0)" class="btn btn-sm btn-info mr-4"
-              >Connect</a
+            <a href="/User/MyImmobiliers" class="btn btn-sm btn-info mr-4"
+              >Immobiliers</a
             >
             <a
-              href="javascript:void(0)"
+              href="/User/tables"
               class="btn btn-sm btn-default float-right"
-              >Message</a
+              >Transactions</a
             >
           </div>
         </div>
@@ -59,39 +59,36 @@
                 class="card-profile-stats d-flex justify-content-center mt-md-5"
               >
                 <div>
-                  <span class="heading">22</span>
-                  <span class="description">Friends</span>
+                  <span class="heading">5</span>
+                  <span class="description">Immobiliers</span>
                 </div>
                 <div>
-                  <span class="heading">10</span>
-                  <span class="description">Photos</span>
-                </div>
-                <div>
-                  <span class="heading">89</span>
-                  <span class="description">Comments</span>
+                  <span class="heading">13</span>
+                  <span class="description">Transactions</span>
                 </div>
               </div>
             </div>
           </div>
           <div class="text-center">
-            <h3>Jessica Jones<span class="font-weight-light">, 27</span></h3>
+            <h3>{{ username }}<span class="font-weight-light">, 21</span></h3>
             <div class="h5 font-weight-300">
-              <i class="ni location_pin mr-2"></i>Bucharest, Romania
+              <i class="ni location_pin mr-2"></i>Sale, Morocco
             </div>
             <div class="h5 mt-4">
-              <i class="ni business_briefcase-24 mr-2"></i>Solution Manager -
-              Creative Tim Officer
+              <i class="ni business_briefcase-24 mr-2"></i>Real Estate Investor
             </div>
             <div>
-              <i class="ni education_hat mr-2"></i>University of Computer
-              Science
+              <a href=""><i class="ni education_hat mr-2"></i>Estate Chain.inc</a>
             </div>
             <hr class="my-4" />
-            <p>
-              Ryan — the name taken by Melbourne-raised, Brooklyn-based Nick
-              Murphy — writes, performs and records all of his own music.
+            <p [ngClass]="{'limitTextHeight': isReadMore}" >
+              {{ username }} — a 21 year young entrepreneur / investor in the Real estate domain, 
+              trying to thrive in life with the modest experience that I got from you father.
             </p>
-            <a href="javascript:void(0)">Show more</a>
+            <!-- <a href="javascript:void(0)">Show more</a> -->
+            <a type="button" (click)="showText()">
+              {{ isReadMore ? 'Show more': 'Show Less' }}
+            </a>
           </div>
         </div>
       </div>
@@ -104,7 +101,7 @@
               <h3 class="mb-0">My account</h3>
             </div>
             <div class="col-4 text-right">
-              <a href="#!" class="btn btn-sm btn-primary">Settings</a>
+              <a href="User/profile#settings" class="btn btn-sm btn-primary">Settings</a>
             </div>
           </div>
         </div>
@@ -123,7 +120,7 @@
                       id="input-username"
                       class="form-control form-control-alternative"
                       placeholder="Username"
-                      value="lucky.jesse"
+                      value="{{username}}"
                     />
                   </div>
                 </div>
@@ -137,6 +134,7 @@
                       id="input-email"
                       class="form-control form-control-alternative"
                       placeholder="jesse@example.com"
+                      value="{{email}}"
                     />
                   </div>
                 </div>
@@ -152,7 +150,7 @@
                       id="input-first-name"
                       class="form-control form-control-alternative"
                       placeholder="First name"
-                      value="Lucky"
+ 
                     />
                   </div>
                 </div>
@@ -166,7 +164,7 @@
                       id="input-last-name"
                       class="form-control form-control-alternative"
                       placeholder="Last name"
-                      value="Jesse"
+
                     />
                   </div>
                 </div>
@@ -186,7 +184,7 @@
                       id="input-address"
                       class="form-control form-control-alternative"
                       placeholder="Home Address"
-                      value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09"
+                      value="Sale, Morocco"
                       type="text"
                     />
                   </div>
@@ -203,7 +201,7 @@
                       id="input-city"
                       class="form-control form-control-alternative"
                       placeholder="City"
-                      value="New York"
+                      value="Sale"
                     />
                   </div>
                 </div>
@@ -217,7 +215,7 @@
                       id="input-country"
                       class="form-control form-control-alternative"
                       placeholder="Country"
-                      value="United States"
+                      value="Morocco"
                     />
                   </div>
                 </div>
@@ -236,7 +234,7 @@
                 </div>
               </div>
             </div>
-            <hr class="my-4" />
+            <hr class="my-4" id="settings" />
             <!-- Description -->
             <h6 class="heading-small text-muted mb-4">About me</h6>
             <div class="pl-lg-4">
@@ -247,7 +245,7 @@
                   class="form-control form-control-alternative"
                   placeholder="A few words about you ..."
                 >
-A beautiful Dashboard for Bootstrap 4. It is Free and Open Source.</textarea
+</textarea
                 >
               </div>
             </div>

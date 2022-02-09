@@ -120,6 +120,7 @@
   <!-- Table -->
   <div class="row">
     <div *ngFor="let Immobilier of Immobiliers" class="col-xl-3 col-lg-6">
+      <div class="imgCard">
       <div class="card shadow">
         <div class="card-header border-0">
           <h3 class="mb-0">House in {{Immobilier.ville}} ---- ID: {{Immobilier.id}}</h3>
@@ -130,8 +131,41 @@
         <div class="card-footer py-4">
           <span>Price: {{Immobilier.price}}.000 $</span><br>
           <span>Surface: {{Immobilier.surface}}</span>
+          <div>
+            <button (click)="Buy(Immobilier)" class="btn btn-lg btn-outline-primary" (click)="open(mymodal)">BUY</button>
+          
+          </div>
         </div>
+        
       </div>
     </div>
+   </div>
   </div>
+
 </div>
+
+<ng-template #mymodal let-modal>
+
+
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Buy Now</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+
+  <div class="modal-body">
+    
+        <label>
+          Private key:
+          <input type="text" class="form-control" name="privateKey" [(ngModel)]="privateKey">
+        </label>
+     
+  </div>
+
+  <div class="modal-footer">
+    <button class="btn btn-outline-info" (click)="transfertImmobilier()">transfert</button>
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
+  </div>
+
+</ng-template>

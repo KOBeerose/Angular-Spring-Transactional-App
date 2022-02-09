@@ -27,15 +27,16 @@ import { AddImmobilierComponent } from './pages/add-immobilier/add-immobilier.co
     ReactiveFormsModule,
     NgbModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
     declarations: [
       AppComponent,
       AdminLayoutComponent,
       AuthLayoutComponent,
       UserLayoutComponent,
-      ForbiddenComponent
-    ],
+      ForbiddenComponent,
+      
+        ],
   providers: [],
   bootstrap: [AppComponent]
 })
