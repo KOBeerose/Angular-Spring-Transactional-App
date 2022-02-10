@@ -1,4 +1,4 @@
 *.css linguist-vendored
 *.html linguist-vendored
-*.ipynb linguist-vendored
+*.scss linguist-vendored
 *.tex linguist-vendored
